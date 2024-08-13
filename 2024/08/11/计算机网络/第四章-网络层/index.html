@@ -25,10 +25,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="主要任务：把分组从源端传到目的端，为分布交换网上的不同主机提供通信服务。网络层传输单位是数据报。    路由选择与分组转发 异构网络互连 拥塞控制  SDN数据平面（转发）：对于数据处理过程中各种具体处理转发过程。控制平面（路由选择）：用于控制和管理网络协议的运行。SDN：控制平面从路由器物理上分离。路由器仅实现转发，远程控制器计算和转发转发表以供每台路由器所使用。路由选择处理器负责与远程控制器通">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png">
+<meta property="og:image" content="http://example.com/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv4.png">
 <meta property="article:published_time" content="2024-08-11T11:52:10.000Z">
-<meta property="article:modified_time" content="2024-08-11T12:21:20.793Z">
+<meta property="article:modified_time" content="2024-08-12T15:19:05.431Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png">
     
     
     <!--- Icon Part-->
@@ -82,7 +85,7 @@
 
     <script id="hexo-configurations">
     window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1500px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/lago-1437727-wallhere.com.jpg","dark":"/img/lago-1437727-wallhere.com.png"},"title":"XYX Blog","subtitle":{"text":["Hello World"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"ture","style":"default","links":{"github":"https://github.com/XYXMichael","instagram":null,"zhihu":null,"twitter":null,"email":null,"bilibili":"https://space.bilibili.com/3461562069158456?spm_id_from=333.1007.0.0"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Closer","artist":"The Chainsmokers","url":"https://m801.music.126.net/20240811225417/1154b7acc3e14d144bcc6bd4c4ef7eaf/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/22259858746/a73c/ad43/bba9/15e9f972133036245da8ea6bdbd7b094.mp3","cover":"https://ts1.cn.mm.bing.net/th/id/R-C.5ee9feae87377a786551ded8ea892184?rik=rl1munj3ksr%2fww&riu=http%3a%2f%2fimge.kugou.com%2fstdmusic%2f400%2f20190514%2f20190514153203829303.jpg&ehk=SZK%2fh%2bE5%2bygZCAtrvOuVQUsX9Oug1dgD6qTnnwxE2oc%3d&risl=&pid=ImgRaw&r=0","lrc":null},{"name":"See you again","artist":"查理普斯","url":"https://m801.music.126.net/20240811225520/6daebf335c89d3a5dd5feab350a394e2/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/17311015725/20af/db8e/d80a/85d84199ae4a29058ad8280c446a3504.mp3","cover":"https://tse3-mm.cn.bing.net/th/id/OIP-C.KnFJiCCy2MupQflbSGLC7AHaHV?rs=1&pid=ImgDetMain"},{"name":"Shape of you","artist":"Ed Sheeran","url":"https://m701.music.126.net/20240811225552/b3321226dc313f508c9831fb06b58977/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/17319826853/d744/904b/619d/c32647cb451e80ba19f7bace3fa171bc.mp3","cover":"https://m.media-amazon.com/images/I/81PPDaaySeL._SS500_.jpg"},{"name":"Something Just Like This","artist":"Coldplay","url":"https://evan.beee.top/music/Something%20Just%20Like%20This%20-%20The%20Chainsmokers%E3%80%81Coldplay.mp3","cover":"https://evan.beee.top/music/covers/Something_Just_Like_This.png"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Status":{"path":"https://status.ohevan.com/","icon":"fa-regular fa-chart-bar"},"Categories":{"icon":"fa-solid fa-code","path":"/categories","submenus":{"数据结构":"/categories/数据结构","计算机网络":"/categories/计算机网络","操作系统":"/categories/操作系统","计算机组成原理":"/categories/计算机组成原理"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1500px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/lago-1437727-wallhere.com.jpg","dark":"/img/lago-1437727-wallhere.com.png"},"title":"XYX Blog","subtitle":{"text":["Hello World"],"hitokoto":{"enable":true,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":"ture","style":"default","links":{"github":"https://github.com/XYXMichael","instagram":null,"zhihu":null,"twitter":null,"email":null,"bilibili":"https://space.bilibili.com/3461562069158456?spm_id_from=333.1007.0.0"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"fixed","audios":[{"name":"Closer","artist":"The Chainsmokers","url":"https://music.163.com/song/media/outer/url?id=2148388785.mp3","cover":"https://ts1.cn.mm.bing.net/th/id/R-C.5ee9feae87377a786551ded8ea892184?rik=rl1munj3ksr%2fww&riu=http%3a%2f%2fimge.kugou.com%2fstdmusic%2f400%2f20190514%2f20190514153203829303.jpg&ehk=SZK%2fh%2bE5%2bygZCAtrvOuVQUsX9Oug1dgD6qTnnwxE2oc%3d&risl=&pid=ImgRaw&r=0","lrc":null},{"name":"See you again","artist":"查理普斯","url":"https://music.163.com/song/media/outer/url?id=2166153672.mp3","cover":"https://tse3-mm.cn.bing.net/th/id/OIP-C.KnFJiCCy2MupQflbSGLC7AHaHV?rs=1&pid=ImgDetMain"},{"name":"Shape of you","artist":"Ed Sheeran","url":"https://music.163.com/song/media/outer/url?id=2122128544.mp3","cover":"https://m.media-amazon.com/images/I/81PPDaaySeL._SS500_.jpg"},{"name":"Something Just Like This","artist":"Coldplay","url":"https://evan.beee.top/music/Something%20Just%20Like%20This%20-%20The%20Chainsmokers%E3%80%81Coldplay.mp3","cover":"https://evan.beee.top/music/covers/Something_Just_Like_This.png"}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Status":{"path":"https://status.ohevan.com/","icon":"fa-regular fa-chart-bar"},"Categories":{"icon":"fa-solid fa-code","path":"/categories","submenus":{"数据结构":"/categories/数据结构","计算机网络":"/categories/计算机网络","操作系统":"/categories/操作系统","计算机组成原理":"/categories/计算机组成原理"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -602,8 +605,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-08-11 20:21:20</span>
-            <span class="mobile">2024-08-11 20:21:20</span>
+            <span class="desktop">2024-08-12 23:19:05</span>
+            <span class="mobile">2024-08-12 23:19:05</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -630,12 +633,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>401 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>8 分钟</span>
         </span>
     
     
@@ -670,6 +673,188 @@
 </li>
 <li>网络控制应用程序：根据SDN控制器提供的方法，这些应用程序通过这些方法能够监视、编程和控制下面的网络设备</li>
 </ul>
+<h1 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h1><ul>
+<li>静态路由算法：管理员手动配置路由信息<ul>
+<li>优点：简便、可靠，在负荷稳定、拓扑变化不大的网络中运行效果很好，广泛应用于高度安全性的军事网络和较小的商业网络</li>
+<li>缺点：路由更新慢，不使用大型网络</li>
+</ul>
+</li>
+<li>动态路由算法（自适应路由算法）<ul>
+<li>全局性（链路状态路由算法OSPF）：所有路由器掌握完整的网络拓扑和连路费用信息</li>
+<li>分散性（距离向量路由算法RIP）：路由器只掌握物理相连的邻居及链路费用</li>
+<li>优点：路由更新快，适用大型网络，及时响应链路费用或网络拓扑变化</li>
+<li>缺点：算法复杂，增加网络负担</li>
+</ul>
+</li>
+</ul>
+<p>自治系统AS：在单一的技术管理下的一组路由器，而这些路由器使用一种AS内部的路由选择协议和共同的度量以确定分组在该AS内的路由，同时还使用一种AS之间的路由协议以确定在AS之间的路由。<code>一个AS内的所有网络都属于一个行政单位来管辖，一个自治系统的所有路由器在本自治系统内都必须连通</code></p>
+<h1 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h1><p><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png"><br>首部长度：<strong>以4B为单位</strong>，表示数据报中首部的长度<br>MTU：最大传送单元，链路层数据帧可封装数据的上限。以太网的MTU是1500字节。<br>标识：同意数据报的分片使用统一标识。<br>标志：只有两位有意义，中间位DF：（DF&#x3D;1，禁止分片；DF&#x3D;0，允许分片）；最低位MF（MF&#x3D;1，后面还有“分片”；MF&#x3D;0，代表最后一片&#x2F;没分片）<br>片偏移：指出较长分组分片后，某片在原分组中的相对位置。<strong>以8B为单位</strong>。  </p>
+<h1 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h1><p>IP地址：全世界唯一的32位&#x2F;4字节标识符，标识路由器主机的接口{&lt;网络号&gt;&lt;主机号&gt;}<br><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv4.png"><br>特殊的IP地址</p>
+<table>
+<thead>
+<tr>
+<th>NetID（网络号）</th>
+<th>HostID（主机号）</th>
+<th>作为IP分组源地址</th>
+<th>作为IP分组目的地址</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全0</td>
+<td>全0</td>
+<td>可以</td>
+<td>不可以</td>
+<td>本网范围内表示主机，路由表中用于表示默认路由（表示整个Internet网络）</td>
+</tr>
+<tr>
+<td>全0</td>
+<td>特定值</td>
+<td>可以</td>
+<td>不可以</td>
+<td>表示本网内某个特定主机</td>
+</tr>
+<tr>
+<td>全1</td>
+<td>全1</td>
+<td>不可以</td>
+<td>可以</td>
+<td>本网广播地址（路由器不转发）</td>
+</tr>
+<tr>
+<td>特定值</td>
+<td>全0</td>
+<td>不可以</td>
+<td>不可以</td>
+<td>网络地址，表示一个网络</td>
+</tr>
+<tr>
+<td>特定值</td>
+<td>全1</td>
+<td>不可以</td>
+<td>可以</td>
+<td>直接广播地址，对特定网络上的所有主机进行广播</td>
+</tr>
+<tr>
+<td>127</td>
+<td>任何数</td>
+<td>可以</td>
+<td>可以</td>
+<td>用于本地软件换回测试，称为环回地址</td>
+</tr>
+<tr>
+<td>私有IP地址：</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>地址类别</th>
+<th>地址范围</th>
+<th>网段个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A类</td>
+<td>10.0.0.0~10.255.255.255</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B类</td>
+<td>172.16.0.0~172.31.255.255</td>
+<td>16</td>
+</tr>
+<tr>
+<td>C类</td>
+<td>192.168.0.0~192.168.255.255</td>
+<td>256</td>
+</tr>
+<tr>
+<td>常用的三种类别IP地址的使用范围：</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>网络类别</th>
+<th>最大可用网络数</th>
+<th>第一个可用的网络号</th>
+<th>最后一个可用的网络号</th>
+<th>每个网络的最大主机数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>$2^7-2$</td>
+<td>1</td>
+<td>126</td>
+<td>$2^{24}-2$</td>
+</tr>
+<tr>
+<td>B</td>
+<td>$2^{14}-1$</td>
+<td>128.1</td>
+<td>191.255</td>
+<td>$2^{16}-2$</td>
+</tr>
+<tr>
+<td>C</td>
+<td>$2^{21}-1$</td>
+<td>192.0.1</td>
+<td>223.255.255</td>
+<td>$2^8-2$</td>
+</tr>
+</tbody></table>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>网络地址转换NAT：在专用网连接到因特网的路由器安装NAT软件，安装了NAT软件的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
+<h2 id="子网划分和子网掩码"><a href="#子网划分和子网掩码" class="headerlink" title="子网划分和子网掩码"></a>子网划分和子网掩码</h2><p>子网掩码：用来指明分类IP地址的主机号部分被借用了多少位作为子网号（与IP地址进行与运算）<br>路由器转发分组的算法：</p>
+<ol>
+<li>提取目的IP地址</li>
+<li>是否直接交付</li>
+<li>特定主机路由</li>
+<li>检测路由表有无路径</li>
+<li>默认路由0.0.0.0</li>
+<li>丢弃，报告转发分组失败</li>
+</ol>
+<h2 id="无分类编址CIDR"><a href="#无分类编址CIDR" class="headerlink" title="无分类编址CIDR"></a>无分类编址CIDR</h2><p>CIDR把网络前缀都相同的连续的IP地址组成一个“CIDR地址块”<br>CIDR记法：IP地址后加上“&#x2F;”，然后写上网络前缀<br>特点：</p>
+<ol>
+<li>消除了传统的A类、B类和C类地址以及划分子网的概念</li>
+<li>融合子网地址与子网掩码，方便子网划分</li>
+</ol>
+<p>将多个子网聚合成一个较大的子网，叫做路由聚合。方法：<code>将网络前缀缩短（所有网络地址取交集）</code><br>使用CIDR时，查找路由表可能得到几个匹配结果（跟网络掩码按位相与），应选择具有最长网络前缀的路由。前缀越长，地址块越小，路由越具体。  </p>
+<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>ARP协议：完成主机或路由器IP地址到MAC地址的映射<br>四种典型情况：</p>
+<ol>
+<li>主机A发给本网络上的主机B：用ARP找到主机B的硬件地址</li>
+<li>主机A发给另一网络上的主机B：用ARP找到本网络上一个路由器的硬件地址；</li>
+<li>路由器发给本网络的主机A：用ARP找到主机A的硬件地址；</li>
+<li>路由器发给另一网络的主机B：用ARP找到本网络上的一个路由器的硬件地址</li>
+</ol>
+<h2 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h2><p>动态主机配置协议DHCP是应用层协议，使用客户&#x2F;服务器方式，客户端和服务端通过广播方式进行交互，基于UDP。<br>DHCP提供即插即用联网机制，主机可以从服务器动态获取IP地址、子网掩码、默认网关、DNS服务器名称与IP地址，允许地址重用，支持移动用户加入网络，支持在用地址续租。  </p>
+<ol>
+<li>主机广播DHCP发现报文</li>
+<li>DHCP服务器广播DHCP提供报文</li>
+<li>主机广播DHCP请求报文</li>
+<li>DHCP服务器广播DHCP确认报文</li>
+</ol>
+<h2 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h2><h3 id="ICMP差错报文"><a href="#ICMP差错报文" class="headerlink" title="ICMP差错报文"></a>ICMP差错报文</h3><ul>
+<li>终点不可达：当路由器或主机不能交付数据报时就像源点发送终点不可达报文。</li>
+<li>源点抑制报文：当路由器或主机由于拥塞而丢弃数据报时，就像源点发送源点抑制报文，使源点知道应当把数据报的发送速率变慢。拥塞丢数据。</li>
+<li>时间超过：当路由器收到生存时间TTL&#x3D;0的数据报时，除丢弃该数据报外，还要向远点发送时间超过报文。当终点在预先规定的时间内不能收到一个数据报的全部数据报片时，就把已收到的数据报片都丢弃，并向源点发送时间超过报文。</li>
+<li>参数问题：当路由器或目的主机收到的数据报的首部中有的字段值不正确时，就丢弃该数据包，并向源点发送参数问题报文。</li>
+<li>改变路由：路由器把改变路由报文发送给主机，让主机知道下次应将数据报发送给另外的路由器。</li>
+</ul>
+<h3 id="ICMP询问报文"><a href="#ICMP询问报文" class="headerlink" title="ICMP询问报文"></a>ICMP询问报文</h3><ul>
+<li>回送请求和回答报文：测试目的站是否可达以及了解其相关状态</li>
+<li>时间戳请求和回答报文：用来进行时钟同步和测量时间</li>
+<li>掩码地址请求和回答报文</li>
+<li>路由器询问和通告报文</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>PING：测试两个主机之间的连通性，使用了ICMP回送请求和回答报文<br>Traceroute：跟踪一个分组从源点到终点的路径，使用了ICMP时间超过差错报告报文。</p>
 
         </div>
 
@@ -684,7 +869,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-08-11 20:21:20
+                    :</strong> 2024-08-12 23:19:05
             </li>
         
         <li>
@@ -716,13 +901,13 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82/"
+                        href="/2024/08/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%88%E6%9C%89%E6%97%B6%E9%97%B4%E8%A1%A5%E5%85%85%E5%90%AB%E6%9C%89%E5%A4%B4%E7%BB%93%E7%82%B9%E5%92%8C%E4%B8%8D%E5%90%AB%E6%9C%89%E5%A4%B4%E7%BB%93%E7%82%B9%E7%9A%84%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%EF%BC%89/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">第二章-物理层</span>
+                                <span class="post-nav-title-item">第一章-线性表（有时间补充含有头结点和不含有头结点的链表插入删除操作）</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -785,7 +970,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">网络层</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDN"><span class="nav-text">SDN</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDN"><span class="nav-text">SDN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-text">路由算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="nav-text">IP数据报</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv4"><span class="nav-text">IPv4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT"><span class="nav-text">NAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E5%92%8C%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-text">子网划分和子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80CIDR"><span class="nav-text">无分类编址CIDR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP%E5%8D%8F%E8%AE%AE"><span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP%E5%8D%8F%E8%AE%AE"><span class="nav-text">DHCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICMP%E5%8D%8F%E8%AE%AE"><span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87"><span class="nav-text">ICMP差错报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87"><span class="nav-text">ICMP询问报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>
@@ -822,7 +1007,7 @@
                     </span>
                     
                         <span>
-                            共 18k 字
+                            共 19.9k 字
                         </span>
                     
                 </p>
