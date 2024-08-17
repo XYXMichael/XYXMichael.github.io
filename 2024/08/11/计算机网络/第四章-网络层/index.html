@@ -25,13 +25,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="主要任务：把分组从源端传到目的端，为分布交换网上的不同主机提供通信服务。网络层传输单位是数据报。    路由选择与分组转发 异构网络互连 拥塞控制  SDN数据平面（转发）：对于数据处理过程中各种具体处理转发过程。控制平面（路由选择）：用于控制和管理网络协议的运行。SDN：控制平面从路由器物理上分离。路由器仅实现转发，远程控制器计算和转发转发表以供每台路由器所使用。路由选择处理器负责与远程控制器通">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/Compare.png">
 <meta property="og:image" content="http://example.com/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png">
 <meta property="og:image" content="http://example.com/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv4.png">
+<meta property="og:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6.png">
+<meta property="og:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6-%E6%95%B0%E6%8D%AE%E6%8A%A5.png">
 <meta property="article:published_time" content="2024-08-11T11:52:10.000Z">
-<meta property="article:modified_time" content="2024-08-12T15:19:05.431Z">
+<meta property="article:modified_time" content="2024-08-17T12:45:49.137Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png">
+<meta name="twitter:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/Compare.png">
     
     
     <!--- Icon Part-->
@@ -551,7 +554,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -605,8 +608,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-08-12 23:19:05</span>
-            <span class="mobile">2024-08-12 23:19:05</span>
+            <span class="desktop">2024-08-17 20:45:49</span>
+            <span class="mobile">2024-08-17 20:45:49</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -633,12 +636,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.3k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.5k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>8 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>15 分钟</span>
         </span>
     
     
@@ -687,8 +690,58 @@
 </ul>
 </li>
 </ul>
-<p>自治系统AS：在单一的技术管理下的一组路由器，而这些路由器使用一种AS内部的路由选择协议和共同的度量以确定分组在该AS内的路由，同时还使用一种AS之间的路由协议以确定在AS之间的路由。<code>一个AS内的所有网络都属于一个行政单位来管辖，一个自治系统的所有路由器在本自治系统内都必须连通</code></p>
-<h1 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h1><p><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png"><br>首部长度：<strong>以4B为单位</strong>，表示数据报中首部的长度<br>MTU：最大传送单元，链路层数据帧可封装数据的上限。以太网的MTU是1500字节。<br>标识：同意数据报的分片使用统一标识。<br>标志：只有两位有意义，中间位DF：（DF&#x3D;1，禁止分片；DF&#x3D;0，允许分片）；最低位MF（MF&#x3D;1，后面还有“分片”；MF&#x3D;0，代表最后一片&#x2F;没分片）<br>片偏移：指出较长分组分片后，某片在原分组中的相对位置。<strong>以8B为单位</strong>。  </p>
+<p>自治系统AS：在单一的技术管理下的一组路由器，而这些路由器使用一种AS内部的路由选择协议和共同的度量以确定分组在该AS内的路由，同时还使用一种AS之间的路由协议以确定在AS之间的路由。<code>一个AS内的所有网络都属于一个行政单位来管辖，一个自治系统的所有路由器在本自治系统内都必须连通</code>  </p>
+<ul>
+<li>内部网关协议IGP：一个AS内使用的 （RIP、OSPF）</li>
+<li>外部网关协议EGP：AS之间使用的（BGP）</li>
+</ul>
+<h2 id="RIP协议（UDP）"><a href="#RIP协议（UDP）" class="headerlink" title="RIP协议（UDP）"></a>RIP协议（UDP）</h2><p>RIP是一种分布式的基于距离向量的路由选择协议，是因特网的协议标准，最大优点是<em>简单</em>。<br>RIP协议要求网络中每一个路由器都维护从它自己到其他每一个目的网络的唯一最佳距离记录。<br>距离：通常为“跳数”，即从源端口到目的端口所经过的路由器个数，经过路由器跳数+1.特别地，从一路由器到直接连接的网络距离为1.RIP允许一条路由最多只能包括15个路由器，因此距离为16表示<strong>网络不可达</strong>。  </p>
+<ul>
+<li>仅和相邻路由器交换信息</li>
+<li>路由器交换的信息是自己的路由表</li>
+<li>每30秒交换一次路由信息，然后路由器根据新信息更新路由表。若超过180s没收到邻居路由器的通告，则判定邻居没了并更新自己的路由表。</li>
+</ul>
+<p>更新路由表规则：</p>
+<ul>
+<li>若目的网络相同，且下一跳路由器相同，则直接更新</li>
+<li>若是新的目的地址，则增加表项</li>
+<li>若目的网络相同，则下一跳路由器不同，而距离更短，则更新</li>
+<li>否则，无操作</li>
+</ul>
+<p><strong>好消息传得快，快消息传得慢</strong>  </p>
+<h2 id="OSPF协议（IP）"><a href="#OSPF协议（IP）" class="headerlink" title="OSPF协议（IP）"></a>OSPF协议（IP）</h2><p>开放最短路径优先OSPF协议：“开放”标明OSPF不是受某一家厂商控制，而是公开发表的；使用的是Dijkstra提出的最短路径算法。  （每隔30min刷新；适用于大规模网络；收敛速度快）<br>OSPF将一个自治系统再划分为若干更小的范围，称为<em>区域</em>。划分区域的好处是，将利用洪泛法交换链路状态信息的范围局限在每个区域而非整个自治系统。<br>最主要的特征：使用分布式的链路状态协议。  </p>
+<ul>
+<li>使用洪泛式向自治系统内所有路由器发送信息，即路由器通过输出端口向所有相邻的路由器发送信息，而每一个相邻路由器又再次将此信息发往其所有的相邻路由器</li>
+<li>发送的信息就是与本路由器相邻的所有路由器的链路状态（本路由器和那些路由器相邻，以及该链路的度量&#x2F;代价–费用、距离、时延、带宽等）</li>
+<li>只有当链路状态发生变化时，路由器才向所有路由器洪泛发送此信息</li>
+</ul>
+<h3 id="链路状态路由算法"><a href="#链路状态路由算法" class="headerlink" title="链路状态路由算法"></a>链路状态路由算法</h3><ol>
+<li>每个路由器发现他的邻居结点【HELLO问候分组】，并了解邻居结点的网络地址。</li>
+<li>设置到它的每个邻居的成本度量metric</li>
+<li>构造【DD数据库描述分组】，相邻站给出自己的链路状态数据库中的所有链路状态项目的摘要信息。</li>
+<li>如果DD分组中的摘要自己都有，则邻站不做处理；如果存在没有的或者是更新的，则发送【LSR链路状态请求分组】，请求自己没有的和比自己更新的信息。</li>
+<li>收到邻站的LSR分组后，发送【LSU链路状态更新分组】进行更新</li>
+<li>更新完毕后，邻站返回一个【LSAck链路状态确认分组】进行确认。</li>
+</ol>
+<p>只有一个路由器的链路状态发生变化：</p>
+<ol>
+<li>泛洪发送【LSU链路状态更新分组】进行更新</li>
+<li>更新完毕后，其他站返回一个【LSAck链路状态确认分组】进行确认。</li>
+<li>使用Dijkstar根据自己的链路状态数据库构造到其他节点间的最短路径。</li>
+</ol>
+<h2 id="BGP协议（应用层）（TCP）"><a href="#BGP协议（应用层）（TCP）" class="headerlink" title="BGP协议（应用层）（TCP）"></a>BGP协议（应用层）（TCP）</h2><p>和其他AS的邻站BGP发言人交换信息；交换网络可达性的信息，即要到达某个网络所要经过的一系列AS；发生变化时更新有变化的部分。  </p>
+<ul>
+<li>支持CIDR</li>
+<li>发生变化时更新有变化的部分</li>
+</ul>
+<ol>
+<li>OPEN报文：用来与相邻的另一个BGP发言人建立关系，并认证发送方</li>
+<li>UPDATE报文：通告新路径或撤销原路径。</li>
+<li>KEEPALIVE报文：在无UPDATE时，周期性证实邻站的连通性；也作为OPEN的确认。</li>
+<li>NOTIFICTION报文：报告先前报文的差错；也被用于关闭连接<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/Compare.png"></li>
+</ol>
+<h1 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h1><p><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png"><br>首部长度：<strong>以4B为单位</strong>，表示数据报中首部的长度<br>MTU：最大传送单元，链路层数据帧可封装数据的上限。以太网的MTU是1500字节。  </p>
+<p>标识：同意数据报的分片使用统一标识。<br>标志：只有两位有意义，中间位DF：（DF&#x3D;1，禁止分片；DF&#x3D;0，允许分片）；最低位MF（MF&#x3D;1，后面还有“分片”；MF&#x3D;0，代表最后一片&#x2F;没分片）<br>片偏移：指出较长分组分片后，某片在原分组中的相对位置。<strong>以8B为单位</strong>。  </p>
 <h1 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h1><p>IP地址：全世界唯一的32位&#x2F;4字节标识符，标识路由器主机的接口{&lt;网络号&gt;&lt;主机号&gt;}<br><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv4.png"><br>特殊的IP地址</p>
 <table>
 <thead>
@@ -855,6 +908,52 @@
 <li>路由器询问和通告报文</li>
 </ul>
 <h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>PING：测试两个主机之间的连通性，使用了ICMP回送请求和回答报文<br>Traceroute：跟踪一个分组从源点到终点的路径，使用了ICMP时间超过差错报告报文。</p>
+<h1 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h1><p><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6.png"><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6-%E6%95%B0%E6%8D%AE%E6%8A%A5.png"></p>
+<ul>
+<li>版本：IPv6对应的是6</li>
+<li>流标号：“流”是互联网络上从特定源点到特定终点的一系列数据报。所有属于同一个流的数据包具有同样的流标签</li>
+<li>有效载荷长度：指明IPv6数据报除基本首部以外的字节数。</li>
+<li>下一个首部：标识下一个扩展首部或上层协议首部</li>
+<li>通信量类：区分不同的IPv6数据报的类别和优先级</li>
+</ul>
+<p><strong>IPv6和IPv4的区别：</strong></p>
+<ul>
+<li>IPv6将地址从32位扩大到128位，更大的地址空间</li>
+<li>IPv6将IPv4的校验和字段彻底移除，以减少每跳的处理时间</li>
+<li>IPv6将IPv4的可选字段移除首部，变成了扩展首部，称为灵活的首部格式，路由器通常不对扩展首部进行检查，大大提高了路由器的处理效率</li>
+<li>IPv6支持即插即用，不需要DHCP协议</li>
+<li>IPv6首部长度必须是8B的整数倍，IPv4首部是4B的整数倍</li>
+<li>IPv6只能在主机处分片，IPv4可以在路由器和主机处分片</li>
+<li>ICMIPv6：附加报文类型“分组过大”</li>
+<li>IPv6取消了协议字段，改成了下一个首部字段</li>
+<li>IPv6支持资源的预分配，支持实时视像等要求，保证一定的带宽和时延的应用</li>
+<li>IPv6取消了总长度字段，改用了有效载荷长度字段。</li>
+<li>IPv6取消了服务类型字段。</li>
+</ul>
+<p>基本地址类型：</p>
+<ul>
+<li>单播：一对一通信，可做源地址+目的地址</li>
+<li>多播：一对多通信，可做目的地址</li>
+<li>任播：一对多中的一个通信，可做目的地址</li>
+</ul>
+<p>IPv6向IPv4过渡的策略：</p>
+<ul>
+<li>双栈协议：同时启用IPv4协议栈和IPv6协议栈</li>
+<li>隧道技术：将其他协议的数据报重新封装然后通过隧道发送</li>
+</ul>
+<h1 id="IP组播"><a href="#IP组播" class="headerlink" title="IP组播"></a>IP组播</h1><p>IP组播地址让源设备能够将分组发送给一组设备。属于多播组的设备将分配一个组播组IP地址（一群共同需求主机的相同标识）<br>组播地址范围为224.0.0.0~239.255.255.255（D类地址），一个D类地址表示一个组播组。只能用作分组的<strong>目标地址</strong>。源地址总是为单播地址。</p>
+<ul>
+<li>组播数据包不提供可靠交付，应用于UDP</li>
+<li>对组播数据包不产生ICMP差错报文</li>
+<li>并非所有D类地址都可以作为组播地址</li>
+</ul>
+<p>硬件组播：组播IP地址也需要相应的组播MAC地址在本地网络中实际传送帧。组播MAC地址以十六进制值01-00-5E打头，余下的6个十六机制位是根据IP组播组地址的最后23位转换得来的。<br>TCP&#x2F;IP协议使用的以太网多播地址范围是01-00-5E-00-00-00到01-00-5E-7F-FF-FF  </p>
+<ul>
+<li>网际组管理协议IGMP：让路由器知道本局域网上是否有主机参加或退出了某个组播组</li>
+<li>组播路由选择协议：找出以源主机为根节点的<em>多播转发树</em></li>
+</ul>
+<h1 id="移动IP"><a href="#移动IP" class="headerlink" title="移动IP"></a>移动IP</h1><p>移动IP技术是移动结点以固定的网络IP地址，实现跨越不同网段的漫游功能，并保证基于网络IP的网络权限再漫游过程中不发生任何改变。<br>移动节点：具有永久IP地址的移动设备。<br>归属代理（本地代理）：一个移动节点的永久“居所”称为归属网络，在归属网络中代表移动节点执行移动管理功能的实体叫做归属代理。<br>永久地址：移动站点在归属网络中的原始地址。<br>外部代理：在外部网络中帮助移动节点完成移动管理功能的实体称为外部代理。<br>转交地址：可以是外部代理的地址或动态配置的一个地址。</p>
+<h1 id="网络层设备"><a href="#网络层设备" class="headerlink" title="网络层设备"></a>网络层设备</h1><p>路由器：一种具有多个输入输出端口和多个输出端口的专用计算机，其任务是分组转发，互联两个不同网络层协议的网段。（可以隔离冲突域和广播域）<br>路由表是根据路由选择算法得出的，主要用途是路由选择，总用软件来实现。<br>转发表由路由表得来的，可以用软件实现，也可以用特殊的硬件来实现。  </p>
 
         </div>
 
@@ -869,7 +968,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-08-12 23:19:05
+                    :</strong> 2024-08-17 20:45:49
             </li>
         
         <li>
@@ -901,18 +1000,33 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/08/11/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%88%E6%9C%89%E6%97%B6%E9%97%B4%E8%A1%A5%E5%85%85%E5%90%AB%E6%9C%89%E5%A4%B4%E7%BB%93%E7%82%B9%E5%92%8C%E4%B8%8D%E5%90%AB%E6%9C%89%E5%A4%B4%E7%BB%93%E7%82%B9%E7%9A%84%E9%93%BE%E8%A1%A8%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C%EF%BC%89/"
+                        href="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">第一章-线性表（有时间补充含有头结点和不含有头结点的链表插入删除操作）</span>
+                                <span class="post-nav-title-item">第三章-数据链路层</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">第二章-物理层</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         
@@ -970,7 +1084,7 @@
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">网络层</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDN"><span class="nav-text">SDN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-text">路由算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="nav-text">IP数据报</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv4"><span class="nav-text">IPv4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT"><span class="nav-text">NAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E5%92%8C%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-text">子网划分和子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80CIDR"><span class="nav-text">无分类编址CIDR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP%E5%8D%8F%E8%AE%AE"><span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP%E5%8D%8F%E8%AE%AE"><span class="nav-text">DHCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICMP%E5%8D%8F%E8%AE%AE"><span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87"><span class="nav-text">ICMP差错报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87"><span class="nav-text">ICMP询问报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SDN"><span class="nav-text">SDN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-text">路由算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RIP%E5%8D%8F%E8%AE%AE%EF%BC%88UDP%EF%BC%89"><span class="nav-text">RIP协议（UDP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSPF%E5%8D%8F%E8%AE%AE%EF%BC%88IP%EF%BC%89"><span class="nav-text">OSPF协议（IP）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%B7%AF%E7%8A%B6%E6%80%81%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95"><span class="nav-text">链路状态路由算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BGP%E5%8D%8F%E8%AE%AE%EF%BC%88%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%89%EF%BC%88TCP%EF%BC%89"><span class="nav-text">BGP协议（应用层）（TCP）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="nav-text">IP数据报</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv4"><span class="nav-text">IPv4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NAT"><span class="nav-text">NAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E5%92%8C%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-text">子网划分和子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80CIDR"><span class="nav-text">无分类编址CIDR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARP%E5%8D%8F%E8%AE%AE"><span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DHCP%E5%8D%8F%E8%AE%AE"><span class="nav-text">DHCP协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICMP%E5%8D%8F%E8%AE%AE"><span class="nav-text">ICMP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP%E5%B7%AE%E9%94%99%E6%8A%A5%E6%96%87"><span class="nav-text">ICMP差错报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP%E8%AF%A2%E9%97%AE%E6%8A%A5%E6%96%87"><span class="nav-text">ICMP询问报文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IPv6"><span class="nav-text">IPv6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IP%E7%BB%84%E6%92%AD"><span class="nav-text">IP组播</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8IP"><span class="nav-text">移动IP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82%E8%AE%BE%E5%A4%87"><span class="nav-text">网络层设备</span></a></li></ol>
 
     </div>
 </div>
@@ -1003,11 +1117,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共 9 篇文章
+                        共 10 篇文章
                     </span>
                     
                         <span>
-                            共 19.9k 字
+                            共 22.4k 字
                         </span>
                     
                 </p>
