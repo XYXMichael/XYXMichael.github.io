@@ -1154,9 +1154,35 @@
 <li>登记端口号：为没有熟知端口号的应用程序使用的（1024~49151）</li>
 </ul>
 </li>
-<li>客户端使用：仅在客户进程运行时才动态选择的端口号（49152~65535）<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/acknowledged-pot.png"><br>套接字：唯一标识网络中的一个主机和它上面的一个进程（主机IP地址，端口号）</li>
+<li>客户端使用：仅在客户进程运行时才动态选择的端口号（49152~65535）<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/acknowledged_pot.png"><br>套接字：唯一标识网络中的一个主机和它上面的一个进程（主机IP地址，端口号）</li>
 </ul>
-<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1>]]></content>
+<hr>
+<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><p>UDP只在IP数据报服务之上增加很少功能，即复用分用和差错检测功能</p>
+<ul>
+<li>UDP是无连接的，减少开销和发送数据之前的时延</li>
+<li>UDP使用最大努力交付，即不保证可靠交付</li>
+<li>UDP是面向报文的，适合一次性传输少量数据的网络应用</li>
+<li>UDP无拥塞控制，适合很多实时应用</li>
+<li>UDP首部开销小，8B，TCP20B<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/UDP.png"><br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/UDP_IP.png"><br>伪首部只有在计算校验和时才出现，不想下传送也不向上递交。<br>17：封装UDP报文的IP数据报首部协议字段时17.</li>
+</ul>
+<hr>
+<h1 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h1><ul>
+<li>TCP是面向连接（虚连接）的传输层协议</li>
+<li>每一条TCP连接只能有两个端点，每一条TCP连接只能是点对点的</li>
+<li>TCP提供可靠交付的服务，无差错、不丢失、不重复、按序到达。</li>
+<li>提供全双工通信。<ul>
+<li>发送缓存：准备发送的数据&amp;已发送但尚未收到确认的数据</li>
+<li>接受缓存：按序到达但尚未被接受应用程序读取的数据&amp;不按序到达的数据</li>
+</ul>
+</li>
+<li>TCP面向字节流：TCP把应用程序交下来的数据堪称仅仅是一连串的无结构字节流<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/TCP.png">序号（seq）：在一个TCP连接中传送的字节流中的每一个字节都按顺序编号，本字段标识本报文段所发送数据的第一个字节的序号。<br>确认号（<strong>小写ack</strong>）：期望收到对方下一个报文段的第一个数据字节的序号。若确认号为N，则证明到序号N-1为止的所有数据都已正确收到。<br>数据偏移（首部长度）：TCP报文段的数据起始处距离TCP报文段的起始处有多远，以4B为单位，即一个数值是4B。<br><em>紧急位URG</em>：URG&#x3D;1时，标明此报文段中有紧急数据，是高优先级的数据，应尽快传送，不用在缓存里排队，配合紧急指针字段使用。<br><em>确认位ACK</em>：ACK&#x3D;1时确认号有效，在连接建立后所有传送的报文段都必须把ACK置为1.<br><em>推送位PSH</em>：PSH&#x3D;1时，接收方尽快交付接受应用进程，不再等到缓存填满再向上交付。<br><em>复位RST</em>：RST&#x3D;1时，表明TCP连接中出现严重差错，必须释放连接，然后再重新建立传输链接。<br><em>同步位SYN</em>：SYN&#x3D;1时，表明是一个连接请求&#x2F;连接接收报文。<br><em>终止位FIN</em>：FIN&#x3D;1时，表明此报文段发送方数据已发送完，要求释放连接。<br>窗口：指的是发送本报文段的一方的接收窗口，即现在允许对方发送的数据量。<br>校验和：校验首部+数据，检验时要加上12B伪首部，第四个字段为6.<br>紧急指针：URG&#x3D;1时才有意义，指出本报文段中紧急数据的字节数。<br>选项：最大报文段长度MSS、窗口扩大、时间戳、选择确认······</li>
+</ul>
+<h2 id="TCP连接管理"><a href="#TCP连接管理" class="headerlink" title="TCP连接管理"></a>TCP连接管理</h2><p>TCP连接的建立采用客户服务器方式，主动发起连接建立的应用进程叫做客户，而被动等待连接建立的应用进程叫服务器。<br><em><strong>“三次握手”</strong></em>：<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/three_shake.png"><br>SYN洪范攻击：攻击者发送TCP SYN，SYN是TCP三次握手中的第一个数据包，而当服务器返回ACK后，该攻击者就不对其进行再确认，那这个TCP连接就处于挂起状态，也就是所谓的半连接状态，服务器收不到再确认的话，还会重复发送ACK给攻击者。这样更加会浪费服务器的资源。攻击者就对服务器发送大量的这种TCP连接，由于每一个都没法完成三次握手，所以在服务器上，这些TCP连接会因为挂起状态而消耗CPU和内存，最后服务器可能死机，就无法为正常用户提供服务了。<br><em><strong>“四次握手”</strong></em>：<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/four_shake.png"></p>
+<h2 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h2><p>可靠：保证接收方进程从缓存区读出的字节流与发送方发出的字节流是完全一样的。<br>重传：确认重传不分家，TCP的发送方在规定的时间内没有收到确认就要重传已发送的报文段。<br>冗余ACK：每当比期望序号大的失序报文段到达时，发送一个冗余ACK，指明下一个期待字节的序号。  </p>
+<h2 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h2><p>流量控制：让发送方慢点，要让接收方来得及接受。（TCP利用滑动窗口机制实现流量控制）<br>在通信过程中，接收方根据自己接受缓存的大小，动态地调整发送方的发送窗口大小，即接收窗口rwnd（接收方设置确认报文段的窗口字段来将rwnd通知给发送方），发送方的发送窗口取接受窗口rwnd和拥塞窗口cwnd的最小值。<br>TCP为每一个连接设有一个持续计时器，只要TCP连接的一方收到对方的零窗口通知，就启动持续计时器。若持续计时器设置的时间到期，就发送一个零窗口探测报文段。接收方收到探测报文段。接收方收到探测报文段时给出现在的窗口值。若窗口仍然是0，那么发送方就重新设置持续计时器。  </p>
+<h2 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h2><h3 id="慢开始和拥塞避免"><a href="#慢开始和拥塞避免" class="headerlink" title="慢开始和拥塞避免"></a>慢开始和拥塞避免</h3><p><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/slow_start.png">  </p>
+<h3 id="快重传和快恢复"><a href="#快重传和快恢复" class="headerlink" title="快重传和快恢复"></a>快重传和快恢复</h3><p><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/swift_recover.png"></p>
+]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
