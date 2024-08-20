@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6.png">
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv6-%E6%95%B0%E6%8D%AE%E6%8A%A5.png">
 <meta property="article:published_time" content="2024-08-11T11:52:10.000Z">
-<meta property="article:modified_time" content="2024-08-20T06:03:04.014Z">
+<meta property="article:modified_time" content="2024-08-20T06:36:42.023Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/Compare.png">
@@ -128,7 +128,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -622,8 +734,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-08-20 14:03:04</span>
-            <span class="mobile">2024-08-20 14:03:04</span>
+            <span class="desktop">2024-08-20 14:36:42</span>
+            <span class="mobile">2024-08-20 14:36:42</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -726,7 +838,7 @@
 <h2 id="OSPF协议（IP）"><a href="#OSPF协议（IP）" class="headerlink" title="OSPF协议（IP）"></a>OSPF协议（IP）</h2><p>开放最短路径优先OSPF协议：“开放”标明OSPF不是受某一家厂商控制，而是公开发表的；使用的是Dijkstra提出的最短路径算法。  （每隔30min刷新；适用于大规模网络；收敛速度快）<br>OSPF将一个自治系统再划分为若干更小的范围，称为<em>区域</em>。划分区域的好处是，将利用洪泛法交换链路状态信息的范围局限在每个区域而非整个自治系统。<br>最主要的特征：使用分布式的链路状态协议。  </p>
 <ul>
 <li>使用洪泛式向自治系统内所有路由器发送信息，即路由器通过输出端口向所有相邻的路由器发送信息，而每一个相邻路由器又再次将此信息发往其所有的相邻路由器</li>
-<li>发送的信息就是与本路由器相邻的所有路由器的链路状态（本路由器和那些路由器相邻，以及该链路的度量&#x2F;代价–费用、距离、时延、带宽等）</li>
+<li>发送的信息就是与本路由器相邻的所有路由器的链路状态（本路由器和那些路由器相邻，以及该链路的度量/代价–费用、距离、时延、带宽等）</li>
 <li>只有当链路状态发生变化时，路由器才向所有路由器洪泛发送此信息</li>
 </ul>
 <h3 id="链路状态路由算法"><a href="#链路状态路由算法" class="headerlink" title="链路状态路由算法"></a>链路状态路由算法</h3><ol>
@@ -755,8 +867,8 @@
 <li>NOTIFICTION报文：报告先前报文的差错；也被用于关闭连接<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/Compare.png"></li>
 </ol>
 <h1 id="IP数据报"><a href="#IP数据报" class="headerlink" title="IP数据报"></a>IP数据报</h1><p><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IP.png"><br>首部长度：<strong>以4B为单位</strong>，表示数据报中首部的长度<br>MTU：最大传送单元，链路层数据帧可封装数据的上限。以太网的MTU是1500字节。  </p>
-<p>标识：同意数据报的分片使用统一标识。<br>标志：只有两位有意义，中间位DF：（DF&#x3D;1，禁止分片；DF&#x3D;0，允许分片）；最低位MF（MF&#x3D;1，后面还有“分片”；MF&#x3D;0，代表最后一片&#x2F;没分片）<br>片偏移：指出较长分组分片后，某片在原分组中的相对位置。<strong>以8B为单位</strong>。  </p>
-<h1 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h1><p>IP地址：全世界唯一的32位&#x2F;4字节标识符，标识路由器主机的接口{&lt;网络号&gt;&lt;主机号&gt;}<br><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv4.png"><br>特殊的IP地址</p>
+<p>标识：同意数据报的分片使用统一标识。<br>标志：只有两位有意义，中间位DF：（DF=1，禁止分片；DF=0，允许分片）；最低位MF（MF=1，后面还有“分片”；MF=0，代表最后一片/没分片）<br>片偏移：指出较长分组分片后，某片在原分组中的相对位置。<strong>以8B为单位</strong>。  </p>
+<h1 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h1><p>IP地址：全世界唯一的32位/4字节标识符，标识路由器主机的接口{&lt;网络号&gt;&lt;主机号&gt;}<br><img lazyload src="/images/loading.svg" data-src="/2024/08/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82/IPv4.png"><br>特殊的IP地址</p>
 <table>
 <thead>
 <tr>
@@ -858,24 +970,24 @@
 </thead>
 <tbody><tr>
 <td>A</td>
-<td>$2^7-2$</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="6.016ex" height="2.088ex" role="img" focusable="false" viewbox="0 -841 2659 923"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="mn" transform="translate(533,363) scale(0.707)"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"/></g></g><g data-mml-node="mo" transform="translate(1158.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/></g><g data-mml-node="mn" transform="translate(2159,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g></g></svg></mjx-container></td>
 <td>1</td>
 <td>126</td>
-<td>$2^{24}-2$</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="6.816ex" height="2.09ex" role="img" focusable="false" viewbox="0 -841.7 3012.6 923.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="TeXAtom" transform="translate(533,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500,0)"/></g></g></g><g data-mml-node="mo" transform="translate(1512.3,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/></g><g data-mml-node="mn" transform="translate(2512.6,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g></g></svg></mjx-container></td>
 </tr>
 <tr>
 <td>B</td>
-<td>$2^{14}-1$</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="6.816ex" height="2.09ex" role="img" focusable="false" viewbox="0 -841.7 3012.6 923.7"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="TeXAtom" transform="translate(533,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500,0)"/></g></g></g><g data-mml-node="mo" transform="translate(1512.3,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/></g><g data-mml-node="mn" transform="translate(2512.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container></td>
 <td>128.1</td>
 <td>191.255</td>
-<td>$2^{16}-2$</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="6.816ex" height="2.072ex" role="img" focusable="false" viewbox="0 -833.9 3012.6 915.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="TeXAtom" transform="translate(533,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(500,0)"/></g></g></g><g data-mml-node="mo" transform="translate(1512.3,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/></g><g data-mml-node="mn" transform="translate(2512.6,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g></g></svg></mjx-container></td>
 </tr>
 <tr>
 <td>C</td>
-<td>$2^{21}-1$</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="6.816ex" height="2.072ex" role="img" focusable="false" viewbox="0 -833.9 3012.6 915.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="TeXAtom" transform="translate(533,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(500,0)"/></g></g></g><g data-mml-node="mo" transform="translate(1512.3,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/></g><g data-mml-node="mn" transform="translate(2512.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g></g></g></svg></mjx-container></td>
 <td>192.0.1</td>
 <td>223.255.255</td>
-<td>$2^8-2$</td>
+<td><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex;" xmlns="http://www.w3.org/2000/svg" width="6.016ex" height="2.072ex" role="img" focusable="false" viewbox="0 -833.9 2659 915.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g><g data-mml-node="mn" transform="translate(533,363) scale(0.707)"><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"/></g></g><g data-mml-node="mo" transform="translate(1158.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/></g><g data-mml-node="mn" transform="translate(2159,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/></g></g></g></svg></mjx-container></td>
 </tr>
 </tbody></table>
 <h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>网络地址转换NAT：在专用网连接到因特网的路由器安装NAT软件，安装了NAT软件的路由器叫NAT路由器，它至少有一个有效的外部全球IP地址。</p>
@@ -888,7 +1000,7 @@
 <li>默认路由0.0.0.0</li>
 <li>丢弃，报告转发分组失败</li>
 </ol>
-<h2 id="无分类编址CIDR"><a href="#无分类编址CIDR" class="headerlink" title="无分类编址CIDR"></a>无分类编址CIDR</h2><p>CIDR把网络前缀都相同的连续的IP地址组成一个“CIDR地址块”<br>CIDR记法：IP地址后加上“&#x2F;”，然后写上网络前缀<br>特点：</p>
+<h2 id="无分类编址CIDR"><a href="#无分类编址CIDR" class="headerlink" title="无分类编址CIDR"></a>无分类编址CIDR</h2><p>CIDR把网络前缀都相同的连续的IP地址组成一个“CIDR地址块”<br>CIDR记法：IP地址后加上“/”，然后写上网络前缀<br>特点：</p>
 <ol>
 <li>消除了传统的A类、B类和C类地址以及划分子网的概念</li>
 <li>融合子网地址与子网掩码，方便子网划分</li>
@@ -901,7 +1013,7 @@
 <li>路由器发给本网络的主机A：用ARP找到主机A的硬件地址；</li>
 <li>路由器发给另一网络的主机B：用ARP找到本网络上的一个路由器的硬件地址</li>
 </ol>
-<h2 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h2><p>动态主机配置协议DHCP是应用层协议，使用客户&#x2F;服务器方式，客户端和服务端通过广播方式进行交互，基于UDP。<br>DHCP提供即插即用联网机制，主机可以从服务器动态获取IP地址、子网掩码、默认网关、DNS服务器名称与IP地址，允许地址重用，支持移动用户加入网络，支持在用地址续租。  </p>
+<h2 id="DHCP协议"><a href="#DHCP协议" class="headerlink" title="DHCP协议"></a>DHCP协议</h2><p>动态主机配置协议DHCP是应用层协议，使用客户/服务器方式，客户端和服务端通过广播方式进行交互，基于UDP。<br>DHCP提供即插即用联网机制，主机可以从服务器动态获取IP地址、子网掩码、默认网关、DNS服务器名称与IP地址，允许地址重用，支持移动用户加入网络，支持在用地址续租。  </p>
 <ol>
 <li>主机广播DHCP发现报文</li>
 <li>DHCP服务器广播DHCP提供报文</li>
@@ -911,7 +1023,7 @@
 <h2 id="ICMP协议"><a href="#ICMP协议" class="headerlink" title="ICMP协议"></a>ICMP协议</h2><h3 id="ICMP差错报文"><a href="#ICMP差错报文" class="headerlink" title="ICMP差错报文"></a>ICMP差错报文</h3><ul>
 <li>终点不可达：当路由器或主机不能交付数据报时就像源点发送终点不可达报文。</li>
 <li>源点抑制报文：当路由器或主机由于拥塞而丢弃数据报时，就像源点发送源点抑制报文，使源点知道应当把数据报的发送速率变慢。拥塞丢数据。</li>
-<li>时间超过：当路由器收到生存时间TTL&#x3D;0的数据报时，除丢弃该数据报外，还要向远点发送时间超过报文。当终点在预先规定的时间内不能收到一个数据报的全部数据报片时，就把已收到的数据报片都丢弃，并向源点发送时间超过报文。</li>
+<li>时间超过：当路由器收到生存时间TTL=0的数据报时，除丢弃该数据报外，还要向远点发送时间超过报文。当终点在预先规定的时间内不能收到一个数据报的全部数据报片时，就把已收到的数据报片都丢弃，并向源点发送时间超过报文。</li>
 <li>参数问题：当路由器或目的主机收到的数据报的首部中有的字段值不正确时，就丢弃该数据包，并向源点发送参数问题报文。</li>
 <li>改变路由：路由器把改变路由报文发送给主机，让主机知道下次应将数据报发送给另外的路由器。</li>
 </ul>
@@ -961,7 +1073,7 @@
 <li>对组播数据包不产生ICMP差错报文</li>
 <li>并非所有D类地址都可以作为组播地址</li>
 </ul>
-<p>硬件组播：组播IP地址也需要相应的组播MAC地址在本地网络中实际传送帧。组播MAC地址以十六进制值01-00-5E打头，余下的6个十六机制位是根据IP组播组地址的最后23位转换得来的。<br>TCP&#x2F;IP协议使用的以太网多播地址范围是01-00-5E-00-00-00到01-00-5E-7F-FF-FF  </p>
+<p>硬件组播：组播IP地址也需要相应的组播MAC地址在本地网络中实际传送帧。组播MAC地址以十六进制值01-00-5E打头，余下的6个十六机制位是根据IP组播组地址的最后23位转换得来的。<br>TCP/IP协议使用的以太网多播地址范围是01-00-5E-00-00-00到01-00-5E-7F-FF-FF  </p>
 <ul>
 <li>网际组管理协议IGMP：让路由器知道本局域网上是否有主机参加或退出了某个组播组</li>
 <li>组播路由选择协议：找出以源主机为根节点的<em>多播转发树</em></li>
@@ -982,7 +1094,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-08-20 14:03:04
+                    :</strong> 2024-08-20 14:36:42
             </li>
         
         <li>
@@ -1135,7 +1247,7 @@
                     </span>
                     
                         <span>
-                            共 23.8k 字
+                            共 23.4k 字
                         </span>
                     
                 </p>
@@ -1455,5 +1567,5 @@
 <script src="/js/plugins/aplayer.js"></script>
 
 
-<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/hijiki.model.json"},"display":{"position":"left","width":40,"height":60},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/hijiki.model.json"},"display":{"position":"right","width":100,"height":180},"mobile":{"show":true},"react":{"opacity":0.4},"log":false});</script></body>
 </html>

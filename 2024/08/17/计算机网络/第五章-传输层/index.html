@@ -18,12 +18,12 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="只有主机才有的层次功能：  提供进程和进程之间的逻辑通信 复用和分用 对收到的报文进行差错检测 传输层的两种协议（TCP、UDP）  复用：应用层所有的应用进程都可以通过传输层在传输到网络层分用：传输层从网络层收到数据后指明的应用程序端口：传输层的SAP，标识主机中的应用进程（逻辑端口&#x2F;软件端口）。端口号只有本地意义，在因特网中不同计算机的相同端口号是没有联系的    服务端使用的端口号">
+        <meta name="description" content="只有主机才有的层次功能：  提供进程和进程之间的逻辑通信 复用和分用 对收到的报文进行差错检测 传输层的两种协议（TCP、UDP）  复用：应用层所有的应用进程都可以通过传输层在传输到网络层分用：传输层从网络层收到数据后指明的应用程序端口：传输层的SAP，标识主机中的应用进程（逻辑端口&#x2F;软件端口）。端口号只有本地意义，在因特网中不同计算机的相同端口号是没有联系的    服务端使用的端口号 熟知端口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五章-传输层">
 <meta property="og:url" content="http://example.com/2024/08/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="只有主机才有的层次功能：  提供进程和进程之间的逻辑通信 复用和分用 对收到的报文进行差错检测 传输层的两种协议（TCP、UDP）  复用：应用层所有的应用进程都可以通过传输层在传输到网络层分用：传输层从网络层收到数据后指明的应用程序端口：传输层的SAP，标识主机中的应用进程（逻辑端口&#x2F;软件端口）。端口号只有本地意义，在因特网中不同计算机的相同端口号是没有联系的    服务端使用的端口号">
+<meta property="og:description" content="只有主机才有的层次功能：  提供进程和进程之间的逻辑通信 复用和分用 对收到的报文进行差错检测 传输层的两种协议（TCP、UDP）  复用：应用层所有的应用进程都可以通过传输层在传输到网络层分用：传输层从网络层收到数据后指明的应用程序端口：传输层的SAP，标识主机中的应用进程（逻辑端口&#x2F;软件端口）。端口号只有本地意义，在因特网中不同计算机的相同端口号是没有联系的    服务端使用的端口号 熟知端口">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/acknowledged_pot.png">
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/UDP.png">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/slow_start.png">
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/swift_recover.png">
 <meta property="article:published_time" content="2024-08-17T07:58:22.243Z">
-<meta property="article:modified_time" content="2024-08-20T06:02:38.820Z">
+<meta property="article:modified_time" content="2024-08-20T06:36:36.757Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/acknowledged_pot.png">
@@ -131,7 +131,119 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -625,8 +737,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-08-20 14:02:38</span>
-            <span class="mobile">2024-08-20 14:02:38</span>
+            <span class="desktop">2024-08-20 14:36:36</span>
+            <span class="mobile">2024-08-20 14:36:36</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -684,10 +796,10 @@
 <li>对收到的报文进行差错检测</li>
 <li>传输层的两种协议（TCP、UDP）</li>
 </ul>
-<p>复用：应用层所有的应用进程都可以通过传输层在传输到网络层<br>分用：传输层从网络层收到数据后指明的应用程序<br>端口：传输层的SAP，标识主机中的应用进程（逻辑端口&#x2F;软件端口）。端口号只有本地意义，在因特网中不同计算机的相同端口号是没有联系的  </p>
+<p>复用：应用层所有的应用进程都可以通过传输层在传输到网络层<br>分用：传输层从网络层收到数据后指明的应用程序<br>端口：传输层的SAP，标识主机中的应用进程（逻辑端口/软件端口）。端口号只有本地意义，在因特网中不同计算机的相同端口号是没有联系的  </p>
 <ul>
 <li>服务端使用的端口号<ul>
-<li>熟知端口号：给TCP&#x2F;IP最重要的一些应用程序，让所有用户都知道（0~1023）</li>
+<li>熟知端口号：给TCP/IP最重要的一些应用程序，让所有用户都知道（0~1023）</li>
 <li>登记端口号：为没有熟知端口号的应用程序使用的（1024~49151）</li>
 </ul>
 </li>
@@ -712,7 +824,7 @@
 <li>接受缓存：按序到达但尚未被接受应用程序读取的数据&amp;不按序到达的数据</li>
 </ul>
 </li>
-<li>TCP面向字节流：TCP把应用程序交下来的数据堪称仅仅是一连串的无结构字节流<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/TCP.png">序号（seq）：在一个TCP连接中传送的字节流中的每一个字节都按顺序编号，本字段标识本报文段所发送数据的第一个字节的序号。<br>确认号（<strong>小写ack</strong>）：期望收到对方下一个报文段的第一个数据字节的序号。若确认号为N，则证明到序号N-1为止的所有数据都已正确收到。<br>数据偏移（首部长度）：TCP报文段的数据起始处距离TCP报文段的起始处有多远，以4B为单位，即一个数值是4B。<br><em>紧急位URG</em>：URG&#x3D;1时，标明此报文段中有紧急数据，是高优先级的数据，应尽快传送，不用在缓存里排队，配合紧急指针字段使用。<br><em>确认位ACK</em>：ACK&#x3D;1时确认号有效，在连接建立后所有传送的报文段都必须把ACK置为1.<br><em>推送位PSH</em>：PSH&#x3D;1时，接收方尽快交付接受应用进程，不再等到缓存填满再向上交付。<br><em>复位RST</em>：RST&#x3D;1时，表明TCP连接中出现严重差错，必须释放连接，然后再重新建立传输链接。<br><em>同步位SYN</em>：SYN&#x3D;1时，表明是一个连接请求&#x2F;连接接收报文。<br><em>终止位FIN</em>：FIN&#x3D;1时，表明此报文段发送方数据已发送完，要求释放连接。<br>窗口：指的是发送本报文段的一方的接收窗口，即现在允许对方发送的数据量。<br>校验和：校验首部+数据，检验时要加上12B伪首部，第四个字段为6.<br>紧急指针：URG&#x3D;1时才有意义，指出本报文段中紧急数据的字节数。<br>选项：最大报文段长度MSS、窗口扩大、时间戳、选择确认······</li>
+<li>TCP面向字节流：TCP把应用程序交下来的数据堪称仅仅是一连串的无结构字节流<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/TCP.png">序号（seq）：在一个TCP连接中传送的字节流中的每一个字节都按顺序编号，本字段标识本报文段所发送数据的第一个字节的序号。<br>确认号（<strong>小写ack</strong>）：期望收到对方下一个报文段的第一个数据字节的序号。若确认号为N，则证明到序号N-1为止的所有数据都已正确收到。<br>数据偏移（首部长度）：TCP报文段的数据起始处距离TCP报文段的起始处有多远，以4B为单位，即一个数值是4B。<br><em>紧急位URG</em>：URG=1时，标明此报文段中有紧急数据，是高优先级的数据，应尽快传送，不用在缓存里排队，配合紧急指针字段使用。<br><em>确认位ACK</em>：ACK=1时确认号有效，在连接建立后所有传送的报文段都必须把ACK置为1.<br><em>推送位PSH</em>：PSH=1时，接收方尽快交付接受应用进程，不再等到缓存填满再向上交付。<br><em>复位RST</em>：RST=1时，表明TCP连接中出现严重差错，必须释放连接，然后再重新建立传输链接。<br><em>同步位SYN</em>：SYN=1时，表明是一个连接请求/连接接收报文。<br><em>终止位FIN</em>：FIN=1时，表明此报文段发送方数据已发送完，要求释放连接。<br>窗口：指的是发送本报文段的一方的接收窗口，即现在允许对方发送的数据量。<br>校验和：校验首部+数据，检验时要加上12B伪首部，第四个字段为6.<br>紧急指针：URG=1时才有意义，指出本报文段中紧急数据的字节数。<br>选项：最大报文段长度MSS、窗口扩大、时间戳、选择确认······</li>
 </ul>
 <h2 id="TCP连接管理"><a href="#TCP连接管理" class="headerlink" title="TCP连接管理"></a>TCP连接管理</h2><p>TCP连接的建立采用客户服务器方式，主动发起连接建立的应用进程叫做客户，而被动等待连接建立的应用进程叫服务器。<br><em><strong>“三次握手”</strong></em>：<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/three_shake.png"><br>SYN洪范攻击：攻击者发送TCP SYN，SYN是TCP三次握手中的第一个数据包，而当服务器返回ACK后，该攻击者就不对其进行再确认，那这个TCP连接就处于挂起状态，也就是所谓的半连接状态，服务器收不到再确认的话，还会重复发送ACK给攻击者。这样更加会浪费服务器的资源。攻击者就对服务器发送大量的这种TCP连接，由于每一个都没法完成三次握手，所以在服务器上，这些TCP连接会因为挂起状态而消耗CPU和内存，最后服务器可能死机，就无法为正常用户提供服务了。<br><em><strong>“四次握手”</strong></em>：<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%BC%A0%E8%BE%93%E5%B1%82/four_shake.png"></p>
 <h2 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h2><p>可靠：保证接收方进程从缓存区读出的字节流与发送方发出的字节流是完全一样的。<br>重传：确认重传不分家，TCP的发送方在规定的时间内没有收到确认就要重传已发送的报文段。<br>冗余ACK：每当比期望序号大的失序报文段到达时，发送一个冗余ACK，指明下一个期待字节的序号。  </p>
@@ -733,7 +845,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-08-20 14:02:38
+                    :</strong> 2024-08-20 14:36:36
             </li>
         
         <li>
@@ -871,7 +983,7 @@
                     </span>
                     
                         <span>
-                            共 23.8k 字
+                            共 23.4k 字
                         </span>
                     
                 </p>
@@ -1191,5 +1303,5 @@
 <script src="/js/plugins/aplayer.js"></script>
 
 
-<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/hijiki.model.json"},"display":{"position":"left","width":40,"height":60},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/hijiki.model.json"},"display":{"position":"right","width":100,"height":180},"mobile":{"show":true},"react":{"opacity":0.4},"log":false});</script></body>
 </html>
