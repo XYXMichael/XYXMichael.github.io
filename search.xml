@@ -197,8 +197,8 @@
   </h2><pre><code>二叉链表的链式存储结构：
 </code></pre>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef struct BiNode{</span><br><span class="line">	ElemType data;                   //数据域</span><br><span class="line">	struct BiTNode *lchild,*rchild;  //左、右孩子指针</span><br><span class="line">}BiTNode,*BiTree;</span><br></pre></td></tr></table></figure></div>
-<p><code>在含有n个结点的二叉链表中含有n+1个空链域</code></p>
-]]></content>
+<h2 id="在含有n个结点的二叉链表中含有n-1个空链域-二叉树的遍历-先序遍历-访问根节点-先序遍历左子树-线序遍历右子树-中序遍历-中序遍历左子树-访问根节点-中序遍历右子树-后序遍历-后序遍历左子树-后序遍历右子树-访问根节点"><a href="#在含有n个结点的二叉链表中含有n-1个空链域-二叉树的遍历-先序遍历-访问根节点-先序遍历左子树-线序遍历右子树-中序遍历-中序遍历左子树-访问根节点-中序遍历右子树-后序遍历-后序遍历左子树-后序遍历右子树-访问根节点" class="headerlink" title="在含有n个结点的二叉链表中含有n+1个空链域# 二叉树的遍历## 先序遍历+ 访问根节点+ 先序遍历左子树+ 线序遍历右子树## 中序遍历+ 中序遍历左子树+ 访问根节点+ 中序遍历右子树## 后序遍历+ 后序遍历左子树+ 后序遍历右子树+ 访问根节点"></a><code>在含有n个结点的二叉链表中含有n+1个空链域</code><br># 二叉树的遍历<br>## 先序遍历<br>+ 访问根节点<br>+ 先序遍历左子树<br>+ 线序遍历右子树<br><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">void PreOrder(BiTree T){</span><br><span class="line">	if(T!=NULL){</span><br><span class="line">		visit(T);             //访问根节点</span><br><span class="line">		PreOrder(T-&gt;lchild);  //递归遍历左子树</span><br><span class="line">		PreOrder(T-&gt;rchild);  //递归遍历右子树</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div><br><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 非递归实现 */</span><br><span class="line">void PreOrder(BiTree T){</span><br><span class="line">	InitStack(S);          //初始化栈S</span><br><span class="line">	BiTree p=T;            //p是遍历指针</span><br><span class="line">	while(p||IsEmpty(S)){  //栈不空或p不空时循环</span><br><span class="line">		if(p){             //一路向左</span><br><span class="line">			visit(p);      </span><br><span class="line">			Push(S,p);     //当前节点入栈</span><br><span class="line">			p=p-&gt;lchild;   //左孩子不空，一直向左走</span><br><span class="line">		}</span><br><span class="line">		else{              //出栈，并转向出栈结点的右子树</span><br><span class="line">			Pop(S,p);      //栈顶元素出栈，访问出栈结点</span><br><span class="line">			p=p-&gt;rchild;   //向右子树走，p赋值为当前节点的右孩子</span><br><span class="line">			//返回while循环继续进入if语句</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div><br>## 中序遍历<br>+ 中序遍历左子树<br>+ 访问根节点<br>+ 中序遍历右子树<br><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">void InOrder(BiTree T){</span><br><span class="line">	if(T!=NULL){</span><br><span class="line">		InOrder(T-&gt;lchild);  //递归遍历左子树</span><br><span class="line">		visit(T);            //访问根节点</span><br><span class="line">		InOrder(T-&gt;rchild);  //递归遍历右子树</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div><br><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 非递归实现 */</span><br><span class="line">void InOrder(BiTree T){</span><br><span class="line">	InitStack(S);          //初始化栈S</span><br><span class="line">	BiTree p=T;            //p是遍历指针</span><br><span class="line">	while(p||IsEmpty(S)){  //栈不空或p不空时循环</span><br><span class="line">		if(p){             //一路向左</span><br><span class="line">			Push(S,p);     //当前节点入栈</span><br><span class="line">			p=p-&gt;lchild;   //左孩子不空，一直向左走</span><br><span class="line">		}</span><br><span class="line">		else{              //出栈，并转向出栈结点的右子树</span><br><span class="line">			Pop(S,p);      //栈顶元素出栈，访问出栈结点</span><br><span class="line">			visit(p);      //向右子树走，p赋值为当前节点的右孩子</span><br><span class="line">			p=p-&gt;rchild;   //返回while循环继续进入if语句</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div><br>## 后序遍历<br>+ 后序遍历左子树<br>+ 后序遍历右子树<br>+ 访问根节点<br><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">void PostOrder(BiTree T){</span><br><span class="line">	if(T!=NULL){</span><br><span class="line">		PostOrder(T-&gt;lchild);  //递归遍历左子树</span><br><span class="line">		PostOrder(T-&gt;rchild);  //递归遍历右子树</span><br><span class="line">		visit(T);              //访问根节点</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div><br><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* 非递归实现 */</span><br><span class="line">void PostOrder(BiTree T){</span><br><span class="line">	InitStack(S);</span><br><span class="line">	BiTNode *p=T;</span><br><span class="line">	BiTNode *r=NULL;</span><br><span class="line">	while(p||!IsEmpty(S)){</span><br><span class="line">		if(p){                           //走到最左边</span><br><span class="line">			push(S,p);</span><br><span class="line">			p=p-&gt;lchild;</span><br><span class="line">		}</span><br><span class="line">		else{                            //向右</span><br><span class="line">			GetTop(S,p);                 //读栈顶结点</span><br><span class="line">			if(p-&gt;rchild&amp;&amp;p-&gt;rchild!=r)  //若右子树存在，且未被访问过</span><br><span class="line">				p=p-&gt;rchild;             //转向右</span><br><span class="line">			else{                        //否则弹出节点并访问</span><br><span class="line">				pop(S,p);                //将结点弹出</span><br><span class="line">				visit(p-&gt;data);          //访问该节点</span><br><span class="line">				r=p;                     //记录最近访问过的节点</span><br><span class="line">				p=NULL;                  //节点访问完，重制p指针</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure></div></h2><p>以上三种遍历方式时间复杂度O(n)，空间复杂度O(n)<br><code>由先序遍历和中序遍历序列可以确定一棵二叉树，由后序遍历和中序遍历序列可以确定一棵二叉树，由层序遍历和中序遍历可以确定一棵二叉树。先序遍历和后序遍历无法确定一棵二叉树</code></p>
+<h2 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h2>]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
@@ -1255,6 +1255,67 @@
 ]]></content>
       <categories>
         <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第二章-进程管理</title>
+    <url>/2024/08/24/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>程序：是静态的，就是个存放在磁盘里的可执行文件，就是一系列的指令集和<br>进程：是动态的，是程序的一次执行过程，是进程实体的运行过程，是系统进行资源分配和调度的一个独立单位。<br>PCB是进程存在的唯一标志。<br>一个进程实体（进程映象）由PCB、程序段、数据段组成。进程是动态的，进程实体是静态的。<br>进程的特征：动态性、并发性、独立性、异步性、结构性  </p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第一章-计算机系统概述</title>
+    <url>/2024/08/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<p>操作系统：是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织调度计算机的工作和资源的分配；以提供给用户和其他软件方便的接口和环境；它是计算机系统中最基本的系统软件。  </p>
+<ul>
+<li>处理机管理</li>
+<li>存储器管理</li>
+<li>文件管理</li>
+<li>设备管理</li>
+</ul>
+<h2 id="联机命令接口：交互式命令接口脱机命令接口：批处理命令接口GUI：图形化用户界面程序接口：可以在程序中进行-系统调用-来使用程序接口。四个特征：-并发：指两个或多个时间在同一时间间隔内发生。这些事件宏观上是同时发生的，但微观上是交替发生的。（并行：两个或多个事件在同一时刻同时发生）操作系统和程序并发是一起诞生的。单核CPU同一时刻只能执行一个程序，各个程序只能并发的执行；多核CPU同一时刻可以同时执行多个程序，多个程序可以并行的执行。-共享：即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。-互斥共享方式：系统中的某些资源，虽然可以提供给多个进程使用，但一个时间段内只允许一个进程访问该资源。-同时共享方式：系统中的某些资源，允许一个时间段内多个进程“同时”对他们进行访问。-虚拟：把一个物理上的实体变为若干个逻辑上的对应物。物理实体是实际存在的，而逻辑上对应物是用户感受到的。-空分复用技术-时分复用技术-异步：在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而实走走停停的，以不可预知的速度向前推进。-操作系统的发展进程1-手工操作系统：用户独占全机、人机速度矛盾导致资源利用率低2-批处理阶段-1-单道批处理系统-优点：-缓解了一定程度的人机速度矛盾，资源利用率有所提高-缺点：内存中仅能有一道程序运行，只有该程序运行结束之后才能调入下一道程序。CPU有大量时间是在空闲等待I-O完成。资源利用率依然很低。-2-多道批处理系统-优点：多道程序并发执行，共享计算机资源。资源利用率大幅提升，CPU和其他资源更能保持“忙碌”状态，系统吞吐量增大。-缺点：用户响应时间长，没有人机交互功能3-分时操作系统：计算机以时间片为单位轮流为各个用户-作业服务，各个用户可通过终端与计算机进行交互。-优点：用户请求可以被及时响应，解决了人机交互问题。允许多个用户同时使用一台计算机，并且用户对计算机的操作相互独立，感受不到别人的存在。-缺点：不能优先处理一些紧急任务。操作系统对各个用户-作业都是完全公平的，循环地为每个用户-作业服务一个时间片，不区分任务的紧急性4-实时操作系统：能够优先相应一些紧急任务，某些紧急任务不需时间片排队，-有及时性和可靠性-硬实时系统-软实时系统5-网络操作系统：实现网络中各种资源的共享和各台计算机之间的通信6-分布式操作系统：特点是分布性和并行性，任何工作都可以分布在这些计算机上，由它们并行、协同完成这个任务7-个人计算机操作系统"><a href="#联机命令接口：交互式命令接口脱机命令接口：批处理命令接口GUI：图形化用户界面程序接口：可以在程序中进行-系统调用-来使用程序接口。四个特征：-并发：指两个或多个时间在同一时间间隔内发生。这些事件宏观上是同时发生的，但微观上是交替发生的。（并行：两个或多个事件在同一时刻同时发生）操作系统和程序并发是一起诞生的。单核CPU同一时刻只能执行一个程序，各个程序只能并发的执行；多核CPU同一时刻可以同时执行多个程序，多个程序可以并行的执行。-共享：即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。-互斥共享方式：系统中的某些资源，虽然可以提供给多个进程使用，但一个时间段内只允许一个进程访问该资源。-同时共享方式：系统中的某些资源，允许一个时间段内多个进程“同时”对他们进行访问。-虚拟：把一个物理上的实体变为若干个逻辑上的对应物。物理实体是实际存在的，而逻辑上对应物是用户感受到的。-空分复用技术-时分复用技术-异步：在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而实走走停停的，以不可预知的速度向前推进。-操作系统的发展进程1-手工操作系统：用户独占全机、人机速度矛盾导致资源利用率低2-批处理阶段-1-单道批处理系统-优点：-缓解了一定程度的人机速度矛盾，资源利用率有所提高-缺点：内存中仅能有一道程序运行，只有该程序运行结束之后才能调入下一道程序。CPU有大量时间是在空闲等待I-O完成。资源利用率依然很低。-2-多道批处理系统-优点：多道程序并发执行，共享计算机资源。资源利用率大幅提升，CPU和其他资源更能保持“忙碌”状态，系统吞吐量增大。-缺点：用户响应时间长，没有人机交互功能3-分时操作系统：计算机以时间片为单位轮流为各个用户-作业服务，各个用户可通过终端与计算机进行交互。-优点：用户请求可以被及时响应，解决了人机交互问题。允许多个用户同时使用一台计算机，并且用户对计算机的操作相互独立，感受不到别人的存在。-缺点：不能优先处理一些紧急任务。操作系统对各个用户-作业都是完全公平的，循环地为每个用户-作业服务一个时间片，不区分任务的紧急性4-实时操作系统：能够优先相应一些紧急任务，某些紧急任务不需时间片排队，-有及时性和可靠性-硬实时系统-软实时系统5-网络操作系统：实现网络中各种资源的共享和各台计算机之间的通信6-分布式操作系统：特点是分布性和并行性，任何工作都可以分布在这些计算机上，由它们并行、协同完成这个任务7-个人计算机操作系统" class="headerlink" title="联机命令接口：交互式命令接口脱机命令接口：批处理命令接口GUI：图形化用户界面程序接口：可以在程序中进行==系统调用==来使用程序接口。四个特征：+ 并发：指两个或多个时间在同一时间间隔内发生。这些事件宏观上是同时发生的，但微观上是交替发生的。（并行：两个或多个事件在同一时刻同时发生）操作系统和程序并发是一起诞生的。单核CPU同一时刻只能执行一个程序，各个程序只能并发的执行；多核CPU同一时刻可以同时执行多个程序，多个程序可以并行的执行。+ 共享：即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。    + 互斥共享方式：系统中的某些资源，虽然可以提供给多个进程使用，但一个时间段内只允许一个进程访问该资源。    + 同时共享方式：系统中的某些资源，允许一个时间段内多个进程“同时”对他们进行访问。+ 虚拟：把一个物理上的实体变为若干个逻辑上的对应物。物理实体是实际存在的，而逻辑上对应物是用户感受到的。    + 空分复用技术    + 时分复用技术+ 异步：在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而实走走停停的，以不可预知的速度向前推进。# 操作系统的发展进程1. 手工操作系统：用户独占全机、人机速度矛盾导致资源利用率低2. 批处理阶段    1. 单道批处理系统        + 优点： 缓解了一定程度的人机速度矛盾，资源利用率有所提高        + 缺点：内存中仅能有一道程序运行，只有该程序运行结束之后才能调入下一道程序。CPU有大量时间是在空闲等待I/O完成。资源利用率依然很低。    2. 多道批处理系统        + 优点：多道程序并发执行，共享计算机资源。资源利用率大幅提升，CPU和其他资源更能保持“忙碌”状态，系统吞吐量增大。        + 缺点：用户响应时间长，没有人机交互功能3. 分时操作系统：计算机以时间片为单位轮流为各个用户/作业服务，各个用户可通过终端与计算机进行交互。    + 优点：用户请求可以被及时响应，解决了人机交互问题。允许多个用户同时使用一台计算机，并且用户对计算机的操作相互独立，感受不到别人的存在。    + 缺点：不能优先处理一些紧急任务。操作系统对各个用户/作业都是完全公平的，循环地为每个用户/作业服务一个时间片，不区分任务的紧急性4. 实时操作系统：能够优先相应一些紧急任务，某些紧急任务不需时间片排队，==有及时性和可靠性==    + 硬实时系统    + 软实时系统5. 网络操作系统：实现网络中各种资源的共享和各台计算机之间的通信6. 分布式操作系统：特点是分布性和并行性，任何工作都可以分布在这些计算机上，由它们并行、协同完成这个任务7. 个人计算机操作系统"></a>联机命令接口：交互式命令接口<br>脱机命令接口：批处理命令接口<br>GUI：图形化用户界面<br>程序接口：可以在程序中进行==系统调用==来使用程序接口。<br>四个特征：<br>+ <strong>并发</strong>：指两个或多个时间在同一时间间隔内发生。这些事件宏观上是同时发生的，但微观上是交替发生的。（并行：两个或多个事件在同一时刻同时发生）<em>操作系统和程序并发是一起诞生的</em>。单核CPU同一时刻只能执行一个程序，各个程序只能并发的执行；多核CPU同一时刻可以同时执行多个程序，多个程序可以并行的执行。<br>+ <strong>共享</strong>：即资源共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。<br>    + 互斥共享方式：系统中的某些资源，虽然可以提供给多个进程使用，但一个时间段内只允许一个进程访问该资源。<br>    + 同时共享方式：系统中的某些资源，允许一个时间段内多个进程“同时”对他们进行访问。<br>+ <strong>虚拟</strong>：把一个物理上的实体变为若干个逻辑上的对应物。物理实体是实际存在的，而逻辑上对应物是用户感受到的。<br>    + 空分复用技术<br>    + 时分复用技术<br>+ <strong>异步</strong>：在多道程序环境下，允许多个程序并发执行，但由于资源有限，进程的执行不是一贯到底的，而实走走停停的，以不可预知的速度向前推进。<br># 操作系统的发展进程<br>1. 手工操作系统：用户独占全机、人机速度矛盾导致资源利用率低<br>2. 批处理阶段<br>    1. 单道批处理系统<br>        + 优点： 缓解了一定程度的人机速度矛盾，资源利用率有所提高<br>        + 缺点：内存中仅能有一道程序运行，只有该程序运行结束之后才能调入下一道程序。CPU有大量时间是在空闲等待I/O完成。资源利用率依然很低。<br>    2. 多道批处理系统<br>        + 优点：多道程序并发执行，共享计算机资源。资源利用率大幅提升，CPU和其他资源更能保持“忙碌”状态，系统吞吐量增大。<br>        + 缺点：用户响应时间长，没有人机交互功能<br>3. 分时操作系统：计算机以时间片为单位轮流为各个用户/作业服务，各个用户可通过终端与计算机进行交互。<br>    + 优点：用户请求可以被及时响应，解决了人机交互问题。允许多个用户同时使用一台计算机，并且用户对计算机的操作相互独立，感受不到别人的存在。<br>    + 缺点：不能优先处理一些紧急任务。操作系统对各个用户/作业都是完全公平的，循环地为每个用户/作业服务一个时间片，不区分任务的紧急性<br>4. 实时操作系统：能够优先相应一些紧急任务，某些紧急任务不需时间片排队，==有及时性和可靠性==<br>    + 硬实时系统<br>    + 软实时系统<br>5. 网络操作系统：实现网络中各种资源的共享和各台计算机之间的通信<br>6. 分布式操作系统：特点是分布性和并行性，任何工作都可以分布在这些计算机上，由它们并行、协同完成这个任务<br>7. 个人计算机操作系统</h2><p>CPU存在用户态和内核态：</p>
+<ul>
+<li>内核态-&gt;用户态：执行一条特权指令–修改PSW的标志位为“用户态”，这个动作意味着操作系统将主动让出CPU使用权</li>
+<li>用户态-&gt;内核态：由“中断”引发，硬件自动完成变态过程，触发中断信号意味着操作系统将强行夺回CPU的使用权</li>
+</ul>
+<p>“中断”：让操作系统内核夺回CPU使用权的唯一途径</p>
+<ul>
+<li>内中断（异常）：与当前执行的指令有关，来源于CPU内部（陷入【用户态执行】、故障、终止）</li>
+<li>外中断：与当前执行的指令无关，来源于CPU外部（时钟中断、I/O中断）</li>
+</ul>
+<p>不同的中断信号，需要用不同的中断处理程序来处理。当CPU检测到中断信号后，会根据中断信号的类型去查询“中断向量表”，以此来找到响应的中断处理程序在内存中的存放位置。<br>系统调用：是操作系统提供给应用程序使用的接口，可以理解为一种可供应用程序调用的特殊函数，应用程序可以通过系统调用来请求获得操作系统内核的服务。<br>凡是与共享资源有关的操作，都必须通过系统调用的方式向操作系统内核提出服务请求</p>
+<ul>
+<li>设备管理</li>
+<li>文件管理</li>
+<li>进程控制</li>
+<li>进程通信</li>
+<li>内存管理</li>
+</ul>
+<p><code>发出系统调用请求是在用户态，而对系统调用的相应处理在核心态进行</code><br>内核是操作系统最基本、最核心的部分。<br>变态的过程是有成本的，频繁地变态会降低系统性能。<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/body_system.png"> </p>
+<ul>
+<li>分层结构：每层可单向调用更低一层提供的接口。</li>
+<li>模块化：将内核划分为多个模块，多个模块之间相互协作。（内核=主模块+可加载内核模块）</li>
+<li>宏内核：所有的系统功能都放在内核里</li>
+<li>微内核：只把中断、原语、进程通信等核心功能放入内核，其余功能以用户进程形式运行在用户态</li>
+<li>外核：负责为用户进程分配未经抽象地硬件资源，由外核负责保证资源使用安全</li>
+</ul>
+<h1 id="引导"><a href="#引导" class="headerlink" title="引导"></a>引导</h1><ol>
+<li>CPU从一个特定主存地址开始，取指令，执行ROM中的引导程序（先进行硬件自检，再开机）</li>
+<li>将磁盘的第一块–主引导记录读入内存，执行磁盘引导程序，扫描分区表</li>
+<li>从活动分区（又称主分区，即安装了操作系统的分区）读入分区引导记录，执行其中的程序</li>
+<li>从根目录下找到完整的操作系统初始化程序（启动管理器）并执行，完成“开机”的一系列动作</li>
+</ol>
+<h1 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h1><p>虚拟机：使用虚拟技术，将一台物理机器虚拟化为堕胎虚拟机器，每个虚拟机器都可以独立运行一个操作系统</p>
+<ul>
+<li>第一类VMM：直接运行在硬件上</li>
+<li>第二类VMM：运行在宿主操作系统上<br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/VMM.png"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>操作系统</category>
       </categories>
   </entry>
 </search>
