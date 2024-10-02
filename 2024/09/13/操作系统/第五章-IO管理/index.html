@@ -25,13 +25,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="I&#x2F;O设备的电子部件：CPU无法直接控制I&#x2F;O设备的机械部件，因此I&#x2F;O设备还要有一个电子部件座位CPU和I&#x2F;O设备机械部件的“中介”，用于实现CPU对设备的控制。I&#x2F;O控制器的功能：  接受和识别CPU发出的命令：I&#x2F;O控制器中会有相应的控制寄存器，来存放命令和参数 向CPU报告设备的状态：会有响应的状态寄存器，用于记录I&#x2F;O设备的当前状态 数据交换：设置响应的数据寄存器 地址识别：需要给各个寄">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2024/08/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/ontrole.png">
+<meta property="og:image" content="http://example.com/2024/09/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%94%E7%AB%A0-IO%E7%AE%A1%E7%90%86/IOControle.png">
 <meta property="og:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-IO%E7%AE%A1%E7%90%86/SSD.png">
 <meta property="article:published_time" content="2024-09-13T13:15:00.000Z">
 <meta property="article:modified_time" content="2024-09-17T05:33:49.355Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2024/08/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/ontrole.png">
+<meta name="twitter:image" content="http://example.com/2024/09/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%94%E7%AB%A0-IO%E7%AE%A1%E7%90%86/IOControle.png">
     
     
     <!--- Icon Part-->
@@ -673,11 +673,11 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -788,7 +788,7 @@ mjx-container[display="true"] + br {
 <li>接受和识别CPU发出的命令：I/O控制器中会有相应的控制寄存器，来存放命令和参数</li>
 <li>向CPU报告设备的状态：会有响应的状态寄存器，用于记录I/O设备的当前状态</li>
 <li>数据交换：设置响应的数据寄存器</li>
-<li>地址识别：需要给各个寄存器设置一个特定的“地址”<br><img lazyload src="/images/loading.svg" data-src="/2024/08/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/ontrole.png"></li>
+<li>地址识别：需要给各个寄存器设置一个特定的“地址”<br><img lazyload src="/images/loading.svg" data-src="/2024/09/13/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%BA%94%E7%AB%A0-IO%E7%AE%A1%E7%90%86/IOControle.png"></li>
 <li>一个I/O控制器可能会对应多个设备</li>
 <li>数据存储器、控制寄存器、状态机村可能有多个（内存映像I/O、寄存器独立编址）<ul>
 <li>内存映射I/O：控制器中的寄存器与内存统一编制，可以采用堆内存进行操作的指令来对控制器进行操作</li>
@@ -912,6 +912,21 @@ mjx-container[display="true"] + br {
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
                 
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/09/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">第一章-计算机系统概述</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
@@ -1017,11 +1032,11 @@ mjx-container[display="true"] + br {
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共 16 篇文章
+                        共 21 篇文章
                     </span>
                     
                         <span>
-                            共 40.8k 字
+                            共 45.8k 字
                         </span>
                     
                 </p>
