@@ -25,10 +25,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="CPU的功能： 指令控制：完成取指令、分析指令和执行指令的操作，即程序的顺序控制 操作控制：一条指令的功能往往是由若干操作信号的组合来实现的。CPU管理并产生有内存取出的每条指令的操作信号，把各种操作信号送往相应的部件，从而控制这些部件按指令的要求进行动作 时间控制：对各种操作加以时间上的控制。时间控制要为每条指令按时间顺序提供应有的控制信号 数据加工：对数据进行算术和逻辑运算 中断处理：对计算机">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/compare.png">
+<meta property="og:image" content="http://example.com/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/%E4%BA%94%E6%AE%B5%E5%BC%8F%E6%B5%81%E6%B0%B4%E7%BA%BF.png">
+<meta property="og:image" content="http://example.com/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/MCPU.png">
+<meta property="og:image" content="http://example.com/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/strumentThread.png">
 <meta property="article:published_time" content="2024-10-02T07:30:00.000Z">
-<meta property="article:modified_time" content="2024-10-02T08:29:05.694Z">
+<meta property="article:modified_time" content="2024-10-05T09:44:28.909Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/compare.png">
     
     
     <!--- Icon Part-->
@@ -670,11 +675,11 @@ mjx-container[display="true"] + br {
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">27</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -728,8 +733,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-10-02 16:29:05</span>
-            <span class="mobile">2024-10-02 16:29:05</span>
+            <span class="desktop">2024-10-05 17:44:28</span>
+            <span class="mobile">2024-10-05 17:44:28</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -756,12 +761,12 @@ mjx-container[display="true"] + br {
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>607 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.8k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>2 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>9 分钟</span>
         </span>
     
     
@@ -821,6 +826,119 @@ mjx-container[display="true"] + br {
 <li>多指令周期：对不同类型的指令选用不同的执行步骤来完成（串行）</li>
 <li>流水线方案：在每一个时钟周期启动一条指令，尽量让多条指令同时运行，但各自处在不同的执行步骤中。指令之间并行执行</li>
 </ul>
+<h1 id="单总线方式"><a href="#单总线方式" class="headerlink" title="单总线方式"></a>单总线方式</h1><h2 id="寄存器之间数据传送"><a href="#寄存器之间数据传送" class="headerlink" title="寄存器之间数据传送"></a>寄存器之间数据传送</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(PC)-&gt;Bus  PCout有效,PC内容送总线</span><br><span class="line">Bus-&gt;MAR   MARin有效,总线内容送MAR</span><br></pre></td></tr></table></figure></div>
+<h2 id="主存与CPU之间的数据传送"><a href="#主存与CPU之间的数据传送" class="headerlink" title="主存与CPU之间的数据传送"></a>主存与CPU之间的数据传送</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(PC)-&gt;Bus-&gt;MAR  PCout和MARin有效，现行指令地址-&gt;MAR</span><br><span class="line">1-&gt;R            CU发读命令</span><br><span class="line">MEM(MAR)-&gt;MDR   MARin有效</span><br><span class="line">MDR-&gt;Bus-&gt;IR    MDRout和IRin有效，现行指令-&gt;IR</span><br></pre></td></tr></table></figure></div>
+<h2 id="执行算术或逻辑运算"><a href="#执行算术或逻辑运算" class="headerlink" title="执行算术或逻辑运算"></a>执行算术或逻辑运算</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Ad(IR)-&gt;Bus-&gt;MAR       MDRout和MARin有效</span><br><span class="line">1-&gt;R                   CU发读命令</span><br><span class="line">MEM(MAR)-&gt;数据线-&gt;MDR   MDRin有效</span><br><span class="line">MDR-&gt;Bus-&gt;Y            MDRout和Yin有效，CU向ALU发送加命令</span><br><span class="line">Z-&gt;ACC                 Zout和ACCin有效，结果-&gt;ACC</span><br></pre></td></tr></table></figure></div>
+<h1 id="控制器的功能和工作原理"><a href="#控制器的功能和工作原理" class="headerlink" title="控制器的功能和工作原理"></a>控制器的功能和工作原理</h1><ul>
+<li>一个节拍内可以并行完成多个“相容的”微操作</li>
+<li>同一个位操作可能在不同指令的不同阶段使用</li>
+<li>不同指令的执行周期所需节拍数不相同。为了简化设计，选择定长的机器周期，以可能出现的最大节拍数为准</li>
+<li>若是及所需节拍数较少，可将微操作安排在机器周期末尾几个节拍进行</li>
+</ul>
+<p>在组合逻辑控制器中，微操作控制信号的形成主要与指令译码信号和时钟信号有关  </p>
+<p>安排微操作时序原则：</p>
+<ol>
+<li>微操作的先后顺序不得随意更改</li>
+<li>被控对象不同的微操作，尽量安排在一个节拍内完成</li>
+<li>占用时间较短的微操作尽量安排在一个节拍内完成并允许有先后顺序</li>
+</ol>
+<p>硬布线控制器的特点：</p>
+<ul>
+<li>指令越多，设计和实现越复杂，因此一般用于RISC</li>
+<li>如果扩充一条新的指令，则控制器的设计就需要大改，因此扩充指令较困难</li>
+<li>由于使用纯硬件实现控制，因此执行速度很快。微操作控制信号有组合逻辑电路即时产生</li>
+</ul>
+<p>微指令中可能包含多个微命令，但微命令与微操作一一对应；一个指令对应一个微程序，一个微程序可能包含多个微指令<br>CM（控制存储器）：用于存放各指令对应的微程序，控制寄存器用只读存储器ROM构成。<br>CMAR（微地址寄存器）：接受微地址形成部件送来的微地址，为在CM中读取微指令做准备。<br>CMDR（微指令寄存器）：用于存放从CM中取出的微指令，他的位数同微指令字长相等。<br>微指令的格式：</p>
+<ul>
+<li>水平型微指令：一条微指令能定义多个可并行的微命令<ul>
+<li>优点：微程序短，执行速度快</li>
+<li>缺点：微指令长，编写微程序麻烦</li>
+</ul>
+</li>
+<li>垂直型微指令：一条微指令只能定义一个微命令，由微操作码字段规定具体功能<ul>
+<li>优点：微指令短、简单、规整，便于编写微程序</li>
+<li>缺点：微程序长，执行速度慢，工作效率低</li>
+</ul>
+</li>
+<li>混合型微指令：在垂直型的基础上增加一些不太复杂的并行操作。微指令较短，仍便于编写；微程序不长，执行速度加快。</li>
+</ul>
+<p>微指令的编码方式：</p>
+<ul>
+<li>直接编码方式：在微指令的操作控制字段中，每一位代表一个微操作命令，某位为“1”表示该控制信号有效<ul>
+<li>优点：简单、直观，执行速度快，操作并行性好</li>
+<li>缺点：为指令字长过长，n个微命令就要求微指令的操作字段有n位，造成控存容量极大。</li>
+</ul>
+</li>
+<li>字段直接编码方式：将微指令和控制字段分成若干“段”，每段经译码后发出控制信号。微命令字段分段原则：<ul>
+<li>互斥性微命令分在同一段，相容性微命令分在不同段内</li>
+<li>每个小段中包含的信息为不能太多，否则将增加译码线路的复杂性和译码时间</li>
+<li>一般每个小段还要留出一个状态，表示本字段不发出任何微命令。因此，当某字段的长度为3位时，最多只能表示7个互斥的微命令，通常用000表示不操作。</li>
+</ul>
+</li>
+<li>字段间接编码方式：一个字段的某些微命令需由另一个字段中的某些微命令来解释，由于不是靠字段直接译码发出的微命令，故称为字段间接编码，又称隐式编码<ul>
+<li>优点：可进一步缩短微指令字长</li>
+<li>缺点：削弱了微指令的并行控制能力，故通常作为字段直接编码方式的一种辅助手段。</li>
+</ul>
+</li>
+</ul>
+<p>微指令的地址形成方式：</p>
+<ul>
+<li>微指令的下地址字段：微指令格式中设置一个下地址字段，有微指令的下地址字段直接指出后继微指令的地址，又称为断定方式</li>
+<li>根据机器指令的操作码形成：当机器指令取至指令寄存器后，微指令的地址由操作码经微地址形成部件形成。</li>
+<li>增量计数器法</li>
+<li>分支转移：转移方式：指明判别条件；转移地址：指明转移成功后的去向</li>
+<li>通过测试网络</li>
+<li>由硬件产生微程序入口地址<br><img lazyload src="/images/loading.svg" data-src="/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/compare.png"></li>
+</ul>
+<h1 id="指令流水线"><a href="#指令流水线" class="headerlink" title="指令流水线"></a>指令流水线</h1><ul>
+<li>顺序执行方式（串行执行方式）：总耗时：T=n*3t=3nt<ul>
+<li>优点：控制简单，硬件代价小</li>
+<li>执行指令的速度较慢，在任何时刻，处理机中只有一条指令在执行，个功能不见得利用率很低</li>
+</ul>
+</li>
+<li>一次重叠执行方式：总耗时T=3t+(n-1)*2t=(1+2n)t<ul>
+<li>优点：程序的执行时间缩短1/3，个功能部件的利用率明显提高</li>
+<li>缺点：需要付出硬件上较大开销的代价，控制过程也比顺序执行复杂了</li>
+</ul>
+</li>
+<li>二次重叠执行方式：总耗时T=3t+(n-1)t=(2+n)t<ul>
+<li>属于一种最理想情况<br><img lazyload src="/images/loading.svg" data-src="/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/%E4%BA%94%E6%AE%B5%E5%BC%8F%E6%B5%81%E6%B0%B4%E7%BA%BF.png"><br>流水线每一个功能段部件后面都要有一个缓冲寄存器，或称为锁存器，其作用是保存本流水段的执行结果，提供给下一流水段使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="影响流水线的因素："><a href="#影响流水线的因素：" class="headerlink" title="影响流水线的因素："></a>影响流水线的因素：</h2><ul>
+<li>结构相关（资源冲突）：由于多条指令在同一时期争用同一资源而形成的冲突<ul>
+<li>解决办法1：后一相关指令暂停一周期</li>
+<li>解决办法2：资源重复配置（数据存储器+指令存储器）</li>
+</ul>
+</li>
+<li>数据相关（数据冲突）：数据相关指在一个程序中，存在必须等前一条指令执行完才能执行后一条指令的情况，则这两条指令即为数据相关。<ul>
+<li>解决办法1：把遇到数据相关的指令及其后续指令都暂停一至几个时钟周期，直到数据相关问题消失后再继续执行。可分为硬件阻塞(stall)和软件插入“NOP”两种方法</li>
+<li>解决办法2：数据旁路技术。</li>
+<li>解决办法3：编译优化：通过编译器调整指令顺序来解决数据相关。</li>
+</ul>
+</li>
+<li>控制相关（控制冲突）：当流水线遇到转移指令和其他改变PC值的指令而造成断流时，会引起控制相关。<ul>
+<li>解决办法1：转移指令分支预测。简单预测（永远猜ture或false）、动态预测（根据历史情况动态调整）</li>
+<li>解决办法2：预取转移成功和不成功两个控制流方向上的目标指令</li>
+<li>解决办法3：加快和提前形成条件码</li>
+<li>解决办法4：提高转移方向的猜准率</li>
+</ul>
+</li>
+</ul>
+<h2 id="流水线的分类"><a href="#流水线的分类" class="headerlink" title="流水线的分类"></a>流水线的分类</h2><ol>
+<li>部件功能级、处理机级和处理机间级流水线</li>
+<li>单功能流水线和多功能流水线</li>
+<li>动态流水线和静态流水线</li>
+<li>线性流水线和非线性流水线</li>
+</ol>
+<p>流水线的多发技术：</p>
+<ul>
+<li>超标量技术：每个时钟周期内可并发多条独立指令、要配置多个功能部件、不能调整指令的执行顺序</li>
+<li>超流水技术：在一个时钟周期内在分段、在一个时钟周期内一个功能部件使用多次</li>
+<li>超长指令字：由编译程序挖掘出指令间潜在的并行性，将多条能并行操作的指令组合成一条具有多个操作码字段的超长指令字（可达几百位），采用多个处理部件</li>
+</ul>
+<p><strong>RISC处理器只有“取数LOAD”和“存数STORE”指令才能访问主存</strong><br>条件转移指令只需要进行取指-译码-执行-访存四个阶段<br>无条件转移指令只需要进行取指-译码-执行<br><img lazyload src="/images/loading.svg" data-src="/2024/08/31/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%A4%84%E7%90%86%E5%99%A8/MCPU.png"><br><img lazyload src="/images/loading.svg" data-src="/%E7%AC%AC%E4%BA%94%E7%AB%A0-%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/strumentThread.png"></p>
 
         </div>
 
@@ -835,7 +953,7 @@ mjx-container[display="true"] + br {
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-10-02 16:29:05
+                    :</strong> 2024-10-05 17:44:28
             </li>
         
         <li>
@@ -863,6 +981,21 @@ mjx-container[display="true"] + br {
 
         
             <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/10/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%80%BB%E7%BA%BF/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">第六章-总线</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
@@ -936,7 +1069,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">第五章-中央处理器</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="nav-text">CPU的功能：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">运算器的基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">控制器的基本结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-text">指令执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%96%B9%E6%A1%88"><span class="nav-text">指令执行方案</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="nav-text">CPU的功能：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">运算器的基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-text">控制器的基本结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-text">指令执行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%96%B9%E6%A1%88"><span class="nav-text">指令执行方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E6%80%BB%E7%BA%BF%E6%96%B9%E5%BC%8F"><span class="nav-text">单总线方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E4%B9%8B%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81"><span class="nav-text">寄存器之间数据传送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E5%AD%98%E4%B8%8ECPU%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81"><span class="nav-text">主存与CPU之间的数据传送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E7%AE%97%E6%9C%AF%E6%88%96%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="nav-text">执行算术或逻辑运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">控制器的功能和工作原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="nav-text">指令流水线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%B1%E5%93%8D%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E5%9B%A0%E7%B4%A0%EF%BC%9A"><span class="nav-text">影响流水线的因素：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">流水线的分类</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -969,11 +1102,11 @@ mjx-container[display="true"] + br {
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共 21 篇文章
+                        共 27 篇文章
                     </span>
                     
                         <span>
-                            共 45.8k 字
+                            共 55.4k 字
                         </span>
                     
                 </p>
